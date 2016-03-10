@@ -9,5 +9,12 @@
 3. tableView.cornerRadius = 5.f;
 4. tableView.cornerRadiusStyle = KYTableVIewCornerRadiusStyleSectionTopAndBottom
 
+![image](https://github.com/kirayamato1989/UITableView-CornerRadius/blob/master/Demo/UITableView.jpeg?raw=true)
 
+### Attention
 
+This category hooked the private method of UITableView
+
+### License
+
+Under MIT license
