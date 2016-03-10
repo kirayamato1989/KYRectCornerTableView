@@ -15,7 +15,6 @@
 		D6CF78C71C91662700884926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CF78BD1C91662700884926 /* Main.storyboard */; };
 		D6CF78C81C91662700884926 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6CF78BF1C91662700884926 /* Info.plist */; };
 		D6CF78C91C91662700884926 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CF78C01C91662700884926 /* main.m */; };
-		D6CF78CA1C91662700884926 /* UITableView.png in Resources */ = {isa = PBXBuildFile; fileRef = D6CF78C11C91662700884926 /* UITableView.png */; };
 		D6CF78CB1C91662700884926 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CF78C31C91662700884926 /* ViewController.m */; };
 		D6CF78CE1C91666900884926 /* UITableView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CF78CD1C91666900884926 /* UITableView+CornerRadius.m */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		D6CF78BE1C91662700884926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6CF78BF1C91662700884926 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6CF78C01C91662700884926 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D6CF78C11C91662700884926 /* UITableView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableView.png; sourceTree = "<group>"; };
 		D6CF78C21C91662700884926 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D6CF78C31C91662700884926 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D6CF78CC1C91666900884926 /* UITableView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CornerRadius.h"; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 				D6CF78BD1C91662700884926 /* Main.storyboard */,
 				D6CF78BF1C91662700884926 /* Info.plist */,
 				D6CF78C01C91662700884926 /* main.m */,
-				D6CF78C11C91662700884926 /* UITableView.png */,
 				D6CF78C21C91662700884926 /* ViewController.h */,
 				D6CF78C31C91662700884926 /* ViewController.m */,
 			);
@@ -155,7 +152,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6CF78CA1C91662700884926 /* UITableView.png in Resources */,
 				D6CF78C81C91662700884926 /* Info.plist in Resources */,
 				D6CF78C71C91662700884926 /* Main.storyboard in Resources */,
 				D6CF78C51C91662700884926 /* Assets.xcassets in Resources */,
