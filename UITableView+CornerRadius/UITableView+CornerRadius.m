@@ -71,6 +71,9 @@ static void *KY_tableViewCornerRadiusMaskInserts = &KY_tableViewCornerRadiusMask
     // 获得需要被做圆角化的视图
     if ([self enableCornerRadiusCell] && [cell isKindOfClass:[UIView class]]) {
         [[cell viewForMakeCornerRadius] addRectCorner:[self cornersToRadiusForIndexPath:indexPath] radius:self.cornerRadius insets:self.cornerRadiusMaskInsets];
+        
+        // important
+        [[cell viewForMakeCornerRadius] setNeedsLayout];
     }
     
     return cell;
