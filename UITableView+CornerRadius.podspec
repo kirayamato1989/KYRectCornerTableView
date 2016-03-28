@@ -1,7 +1,7 @@
 #UITabelView+CornerRadius.podspec
 Pod::Spec.new do |s|
   s.name         = "UITableView+CornerRadius"
-  s.version      = "0.1"
+  s.version      = "0.1.2"
   s.summary      = "快速给UITableView添加圆角样式"
 
   s.homepage     = "https://github.com/kirayamato1989/UITableView-CornerRadius"
