@@ -26,7 +26,13 @@ static void *KY_tableViewCornerRadiusMaskInserts = &KY_tableViewCornerRadiusMask
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self swizzleOriginalSelector:NSSelectorFromString(@"_createPreparedCellForGlobalRow:withIndexPath:willDisplay:") swizzleSelector:@selector(KY_createPreparedCellForGlobalRow:withIndexPath:willDisplay:) isInstanceSelector:YES];
+        CGFloat version = [[UIDevice currentDevice].systemVersion floatValue];
+        if (version == 7.0) {
+            [self swizzleOriginalSelector:NSSelectorFromString(@"_configureCellForDisplay:forIndexPath:") swizzleSelector:@selector(KY_configureCellForDisplay:forIndexPath:) isInstanceSelector:YES];
+        }
+        else if (version >= 8.0) {
+            [self swizzleOriginalSelector:NSSelectorFromString(@"_createPreparedCellForGlobalRow:withIndexPath:willDisplay:") swizzleSelector:@selector(KY_createPreparedCellForGlobalRow:withIndexPath:willDisplay:) isInstanceSelector:YES];
+        }
     });
 }
 
@@ -65,6 +71,18 @@ static void *KY_tableViewCornerRadiusMaskInserts = &KY_tableViewCornerRadiusMask
 
 
 #pragma mark hook
+// iOS 7
+- (void)KY_configureCellForDisplay:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
+    [self KY_configureCellForDisplay:cell forIndexPath:indexPath];
+    
+    // 获得需要被做圆角化的视图
+    if ([self enableCornerRadiusCell] && [cell isKindOfClass:[UIView class]]) {
+        [[cell viewForMakeCornerRadius] addRectCorner:[self cornersToRadiusForIndexPath:indexPath] radius:self.cornerRadius insets:self.cornerRadiusMaskInsets];
+        [[cell viewForMakeCornerRadius] setNeedsLayout];
+    }
+}
+
+// iOS 8 or later
 - (id)KY_createPreparedCellForGlobalRow:(int)globalRow withIndexPath:(id)indexPath willDisplay:(BOOL)p {
     id cell = [self KY_createPreparedCellForGlobalRow:globalRow withIndexPath:indexPath willDisplay:p];
     
