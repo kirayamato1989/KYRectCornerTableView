@@ -17,21 +17,23 @@
     
     Method swizzlingMethod = nil;
     
+    Class class = isInstance ? [self class] : object_getClass(self);
+    
     if (isInstance) {
-        originalMethod = class_getInstanceMethod([self class], original);
+        originalMethod = class_getInstanceMethod(class, original);
         
-        swizzlingMethod = class_getInstanceMethod([self class], swizzle);
+        swizzlingMethod = class_getInstanceMethod(class, swizzle);
     }
     else{
-        originalMethod = class_getClassMethod([self class], original);
+        originalMethod = class_getClassMethod(class, original);
         
-        swizzlingMethod = class_getClassMethod([self class], swizzle);
+        swizzlingMethod = class_getClassMethod(class, swizzle);
     }
     
-    BOOL didAddMethod = class_addMethod([self class], original, method_getImplementation(swizzlingMethod), method_getTypeEncoding(swizzlingMethod));
+    BOOL didAddMethod = class_addMethod(class, original, method_getImplementation(swizzlingMethod), method_getTypeEncoding(swizzlingMethod));
     
     if (didAddMethod) {
-        class_replaceMethod([self class], swizzle, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+        class_replaceMethod(class, swizzle, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
     }
     else {
         method_exchangeImplementations(originalMethod, swizzlingMethod);
